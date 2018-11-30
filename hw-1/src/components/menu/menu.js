@@ -35,13 +35,13 @@ export default class Menu extends Component {
             />
             </label>
       <ul className ={s.list}>
-        {menuFilter.map(item => (
-          <li className={s.items} key ={item.name}>
-            <img src={item.image} />
-            <h2>{item.name}</h2>
-            <span>{item.price} у.e</span>  
-            <p>{item.description}</p>
-            <p>{item.ingredients}</p>
+        {menuFilter.map(({name, price, description, ingredients, image}) => (
+          <li className={s.items} key ={name}>
+            <img src={image} width ='270' />
+            <h2>{name}</h2>
+            <span>{price} у.e</span>  
+            <p>{description}</p>
+            <p>{ingredients}</p>
           </li>
         ))}
       </ul>
