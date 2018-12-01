@@ -18,7 +18,7 @@ export default class Order extends Component {
           <th>Ratings</th>
         </tr>
         {order.map(({ date, price, address, rating, id }) => (
-          <tr>
+          <tr key="id">
             <td>{date}</td>
             <td>{price}</td>
             <td>{address}</td>
