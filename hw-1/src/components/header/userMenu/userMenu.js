@@ -25,7 +25,7 @@ export default class userMenu extends Component {
 
   componentWillUnmount(){
       window.removeEventListener('click', this.handleWindow)
-      window.addEventListener('keydown', this.handleKeyDown)
+      window.removeEventListener('keydown', this.handleKeyDown)
   }
 
   shouldComponentUpdate(nextProps, nextState) {

@@ -5,8 +5,8 @@ import avatar from './assets/avatar.jpg';
 import s from './header.module.css';
 
 import Logo from './logo/logo';
-import Nav from './headerNav/nav';
-import UserMenu from './userMenu/userMenu';
+import Nav from './headerNav/Nav';
+import UserMenu from './userMenu/UserMenu';
 
 const name = 'Bob Ross';
 const navList = ['menu', 'about', 'contact', 'delivery'];
