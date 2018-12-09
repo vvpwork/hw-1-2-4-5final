@@ -6,7 +6,7 @@ import SignUp from './formSignUp/SignUp';
 import Header from './header/headerApp';
 import Modal from './modal/Modal';
 
-// import globalStyle from './global.css';
+import globalStyle from './global.css';
 
 export default class App extends Component {
   state = {
@@ -28,7 +28,7 @@ export default class App extends Component {
   render() {
     const { modalOpen } = this.state;
     return (
-      <div>
+      <div className={globalStyle.div}>
         <Header />
         <button type="button" onClick={this.modalOpen}>
           OpenModal
