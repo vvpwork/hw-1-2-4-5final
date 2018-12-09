@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-// import Menu from './menu/menu';
-// import Order from './order/orderTable';
-// import SignIn from './formSignIn/signIn';
-// import SignUp from './formSignUp/signUp';
+import Menu from './menu/menu';
+import Order from './order/orderTable';
+import SignIn from './formSignIn/SignIn';
+import SignUp from './formSignUp/SignUp';
 import Header from './header/headerApp';
 import Modal from './modal/Modal';
 
@@ -34,11 +34,10 @@ export default class App extends Component {
           OpenModal
         </button>
         {modalOpen && <Modal modalClose={this.modalClose} />}
-        {/* <Menu /> */}
-        {/* <Order /> */}
-        {/* <SignIn /> */}
-
-        {/* <SignUp /> */}
+        <Menu />
+        <Order />
+        <SignIn />
+        <SignUp />
       </div>
     );
   }

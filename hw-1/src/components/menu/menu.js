@@ -1,11 +1,23 @@
 import React, { Component } from 'react';
-import MenuList from './menu.json';
+import axios from 'axios';
+// import MenuList from './menu.json';
 import s from './menu.module.css';
 
 export default class Menu extends Component {
   state = {
-    menu: MenuList,
+    menu: [],
     filter: '',
+  };
+
+  componentDidMount = () => {
+    axios
+      .get('http://localhost:304/menu')
+      .then(d =>
+        this.setState({
+          menu: d.data,
+        }),
+      )
+      .catch(error => console.log(error));
   };
 
   handleInput = ({ target }) => {
