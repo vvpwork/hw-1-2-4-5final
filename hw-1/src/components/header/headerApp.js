@@ -11,25 +11,14 @@ const name = 'Bob Ross';
 const navList = ['menu', 'about', 'contact', 'delivery'];
 
 export default class Header extends Component {
-  state = {
-    userName: '',
-    userAvatar: null,
-  };
-
-  componentDidMount() {
-    this.setState({
-      userName: name,
-      userAvatar: avatar,
-    });
-  }
+  state = {};
 
   render() {
-    const { userName, userAvatar } = this.state;
     return (
       <header className={s.header}>
         <Logo width={100} heigth={100} alt="logo" />
         <Nav navList={navList} />
-        <UserMenu avatar={userAvatar} name={userName} />
+        <UserMenu avatar={avatar} name={name} />
       </header>
     );
   }
