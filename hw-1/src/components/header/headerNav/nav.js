@@ -1,14 +1,15 @@
 import React from 'react';
-
 import s from './headerNav.module.css';
 
-const nav = ({ navList = [] }) => (
+const navList = ['menu', 'about', 'contact', 'delivery'];
+
+const nav = () => (
   <nav>
     <ul className={s.list}>
-      {navList.map(n => (
+      {navList.map(navItems => (
         <li className={s.items}>
           <a className={s.link} href="/">
-            {n}
+            {navItems}
           </a>
         </li>
       ))}

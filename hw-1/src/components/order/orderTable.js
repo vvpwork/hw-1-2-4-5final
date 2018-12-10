@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-// import OrderHistory from './order-history.json';
 
+const headerTable = ['Date', 'Prise', 'Delivery address', 'Ratings'];
 export default class Order extends Component {
   state = {
     order: [],
   };
 
   componentDidMount() {
-    axios.get('http://localhost:304/order').then(d =>
-      this.setState({
-        order: d.data,
-      }),
-    );
+    axios
+      .get('http://localhost:3004/order')
+      .then(response =>
+        this.setState({
+          order: response.data,
+        }),
+      )
+      .catch(error => console.log(error));
   }
 
   render() {
@@ -21,10 +24,9 @@ export default class Order extends Component {
     return (
       <table>
         <tr>
-          <th>Date</th>
-          <th>Price</th>
-          <th>Delivery address</th>
-          <th>Ratings</th>
+          {headerTable.map(title => (
+            <th>{title}</th>
+          ))}
         </tr>
         {order.map(({ date, price, address, rating, id }) => (
           <tr key={id}>

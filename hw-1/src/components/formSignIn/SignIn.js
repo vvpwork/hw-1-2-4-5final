@@ -7,14 +7,14 @@ export default class Login extends Component {
     password: '',
   };
 
-  handleChange = ({ target }) => {
+  handleChange = ({ target: { value, name } }) => {
     this.setState({
-      [target.name]: target.value,
+      [name]: value,
     });
   };
 
-  handleSubmit = ev => {
-    ev.preventDefault();
+  handleSubmit = event => {
+    event.preventDefault();
     console.log(this.state);
   };
 

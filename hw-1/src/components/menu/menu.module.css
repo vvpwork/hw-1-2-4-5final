@@ -1,11 +1,13 @@
-
-.list{
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+.list {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
-.items{
-    width: 290px;
+.items {
+  width: 290px;
+}
+.img {
+  width: 270px;
 }

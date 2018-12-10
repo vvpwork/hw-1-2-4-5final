@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-// import MenuList from './menu.json';
+
 import s from './menu.module.css';
 
 export default class Menu extends Component {
@@ -11,24 +11,25 @@ export default class Menu extends Component {
 
   componentDidMount = () => {
     axios
-      .get('http://localhost:304/menu')
-      .then(d =>
+      .get('http://localhost:3004/menu')
+      .then(response =>
         this.setState({
-          menu: d.data,
+          menu: response.data,
         }),
       )
       .catch(error => console.log(error));
   };
 
-  handleInput = ({ target }) => {
-    const { value } = target;
+  handleInput = ({ target: { value } }) => {
     this.setState({
       filter: value,
     });
   };
 
   filterMenu = (filter, menu) =>
-    menu.filter(m => m.name.toLowerCase().includes(filter.toLowerCase()));
+    menu.filter(menuItem =>
+      menuItem.name.toLowerCase().includes(filter.toLowerCase()),
+    );
 
   render() {
     const { menu, filter } = this.state;
@@ -36,7 +37,7 @@ export default class Menu extends Component {
     const menuFilter = this.filterMenu(filter, menu);
     return (
       <div>
-        filter
+        <span>filter</span>
         <input
           type="text"
           name="user"
@@ -47,7 +48,7 @@ export default class Menu extends Component {
           {menuFilter.map(
             ({ name, price, description, ingredients, image }) => (
               <li className={s.items} key={name}>
-                <img src={image} width="270" alt={name} />
+                <img src={image} alt={name} className={s.img} />
                 <h2>{name}</h2>
                 <span>{price} у.e</span>
                 <p>{description}</p>
