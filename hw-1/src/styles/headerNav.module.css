@@ -1,0 +1,15 @@
+.list {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  max-width: 450px;
+}
+
+.link {
+  text-decoration: none;
+  color: #282c34;
+}
+
+.items {
+  margin-right: 10px;
+}

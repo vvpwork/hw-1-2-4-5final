@@ -2,7 +2,7 @@ import React, { Component, createRef } from 'react';
 import Avatar from './userAvatar/Avatar';
 import DropDown from './dropDown/DropDown';
 
-import s from './userMenu.module.css';
+import s from '../../../styles/userMenu.module.css';
 
 const link = {
   account: '/',

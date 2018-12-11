@@ -5,7 +5,7 @@ import Nav from './headerNav/nav';
 import UserMenu from './userMenu/userMenu';
 import avatar from './assets/avatar.jpg';
 // styles
-import s from './header.module.css';
+import s from '../../styles/header.module.css';
 
 const name = 'Bob Ross';
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import s from './menu.module.css';
+import s from '../../styles/menu.module.css';
 
 export default class Menu extends Component {
   state = {

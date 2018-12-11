@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import s from './signIn.module.css';
+import s from '../../styles/signIn.module.css';
 
 export default class Login extends Component {
   state = {

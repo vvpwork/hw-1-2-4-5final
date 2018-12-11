@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import s from './comments.module.css';
+import s from '../../styles/comments.module.css';
 
 const selectValue = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 export default class Comments extends Component {

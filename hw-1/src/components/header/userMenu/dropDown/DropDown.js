@@ -1,6 +1,6 @@
 import React from 'react';
 
-import s from './DropDown.module.css';
+import s from '../../../../styles/DropDown.module.css';
 
 const DropDown = ({ account, order, planner }) => (
   <div className={s.container}>

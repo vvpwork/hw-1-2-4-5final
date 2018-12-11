@@ -8,7 +8,7 @@ import Header from './header/headerApp';
 import Modal from './modal/Modal';
 import Comments from './comments/comments';
 // styles
-import globalStyle from './global.css';
+import globalStyle from '../styles/global.css';
 
 export default class App extends Component {
   state = {

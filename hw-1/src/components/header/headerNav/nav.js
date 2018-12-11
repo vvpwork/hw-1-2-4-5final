@@ -1,5 +1,5 @@
 import React from 'react';
-import s from './headerNav.module.css';
+import s from '../../../styles/headerNav.module.css';
 
 const navList = ['menu', 'about', 'contact', 'delivery'];
 

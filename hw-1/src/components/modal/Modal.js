@@ -1,5 +1,5 @@
 import React, { Component, createRef } from 'react';
-import s from './modal.module.css';
+import s from '../../styles/modal.module.css';
 
 export default class Modal extends Component {
   containerRef = createRef();
