@@ -4,11 +4,6 @@ import DropDown from './dropDown/DropDown';
 
 import s from '../../../styles/userMenu.module.css';
 
-const link = {
-  account: '/',
-  order: '/',
-  planner: '/',
-};
 export default class userMenu extends Component {
   containerRef = createRef();
 
@@ -72,13 +67,7 @@ export default class userMenu extends Component {
       >
         <Avatar alt="avatar" width={50} heigth={50} src={avatar} />
         <span>{name}</span>
-        {isDropDown && (
-          <DropDown
-            account={link.account}
-            order={link.order}
-            planner={link.planner}
-          />
-        )}
+        {isDropDown && <DropDown />}
       </div>
     );
   }

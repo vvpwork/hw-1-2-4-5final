@@ -4,6 +4,7 @@ import Logo from './logo/logo';
 import Nav from './headerNav/nav';
 import UserMenu from './userMenu/userMenu';
 import avatar from './assets/avatar.jpg';
+import CartIcon from '../cart/cartIcon'
 // styles
 import s from '../../styles/header.module.css';
 
@@ -17,6 +18,7 @@ export default class Header extends Component {
       <header className={s.header}>
         <Logo />
         <Nav />
+        <CartIcon />
         <UserMenu avatar={avatar} name={name} />
       </header>
     );

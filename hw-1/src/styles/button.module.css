@@ -1,0 +1,34 @@
+.button {
+  display: block;
+  margin: 0 auto;
+  height: 25px;
+  line-height: 25px;
+  background: none;
+  color: green;
+  font: 500 18px sans-serif;
+  border: 1px solid green;
+  border-radius: 5px;
+  margin-bottom: 40px;
+}
+
+.button:hover {
+  color: snow;
+  background: green;
+  cursor: pointer;
+}
+
+.button:focus,
+:active {
+  outline: none;
+}
+
+.itemButton {
+  composes: button;
+  color: #e56374;
+  border: 1px solid #e56374;
+}
+
+.itemButton:hover {
+  cursor: pointer;
+  background: #e56374;
+}

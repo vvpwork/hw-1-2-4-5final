@@ -1,29 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
+import userMenuList from '../../../../configs/userMenu'
 import s from '../../../../styles/DropDown.module.css';
 
-const DropDown = ({ account, order, planner }) => (
+const DropDown = () => (
   <div className={s.container}>
     <ul className={s.list}>
-      <li className={s.items}>
-        <a className={s.link} href={account}>
-          {' '}
-          Account{' '}
-        </a>
-      </li>
-      <li className={s.items}>
-        <a className={s.link} href={order}>
-          {' '}
-          Order History
-        </a>
-      </li>
-      <li className={s.items}>
-        <a className={s.link} href={planner}>
-          {' '}
-          Meal Planner{' '}
-        </a>
-      </li>
-    </ul>
+     {userMenuList.map(({name, path})=><li className={s.items} key={name}><Link to={path} className={s.link}>{name}</Link></li>)} 
+      </ul>
     <button type="button">Logout</button>
   </div>
 );

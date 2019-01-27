@@ -1,13 +1,45 @@
 .list {
+  max-width: 1100px;
+  margin: 0 auto;
   list-style: none;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  font:400 18px sans-serif;
+}
+
+.list span{
+  font-weight: bold;
+  color: green;
+}
+
+.title{
+  font-size: 20px;
+  height: 47px;
 }
 
 .items {
+  text-align: center;
   width: 290px;
+  margin-bottom: 15px;
+}
+
+.span {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.items:hover{
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.6)
 }
 .img {
-  width: 270px;
+  display: block;
+  object-fit: cover;
+  width: 290px;
+  height: 250px;
+}
+
+.link{
+  text-decoration: none;
+  color:#282C34;
 }

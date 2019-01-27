@@ -1,0 +1,22 @@
+.container {
+    display: block;
+    margin: 0 auto;
+    width: 200px;    
+    margin-top: 20px;
+    font:600 16px sana-serif;
+}
+.filter{
+    display: inline-block;
+    margin-left: 5px;
+    border: 1px solid green;
+    border-radius: 5px;
+    height: 25px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.filter:focus{
+    border:none;
+    outline: none;
+    box-shadow: 0 0 10px rgba(0,0,0, 0.7)
+}

@@ -1,16 +1,24 @@
 import React from 'react';
+import {NavLink} from 'react-router-dom'
+
+//components
+import mainMenu from '../../../configs/mainMenu'
+
 import s from '../../../styles/headerNav.module.css';
 
-const navList = ['menu', 'about', 'contact', 'delivery'];
+
 
 const nav = () => (
   <nav>
     <ul className={s.list}>
-      {navList.map(navItems => (
-        <li className={s.items}>
-          <a className={s.link} href="/">
-            {navItems}
-          </a>
+      {mainMenu.map(({name, path}) => (
+        <li className={s.items} key={name}>
+          <NavLink to={path} activeStyle ={{
+            color: 'green',
+            textDecoration: 'underline'
+          }} className={s.link} >
+            {name}
+          </NavLink>
         </li>
       ))}
     </ul>
