@@ -28,7 +28,7 @@ const cartView = ({
                 -
               </button>
             </td>
-            <td> {price}us</td>
+            <td> {price} у.е</td>
             <td>
               <button onClick={() => deletProduct(id)}>Удалить</button>
             </td>

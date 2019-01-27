@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Logo from './logo/logo';
 import Nav from './headerNav/nav';
 import UserMenu from './userMenu/userMenu';
-import avatar from './assets/avatar.jpg';
+import avatar from './assets/iron.png';
 import CartIcon from '../cart/cartIcon'
 // styles
 import s from '../../styles/header.module.css';

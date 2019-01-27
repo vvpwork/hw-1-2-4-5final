@@ -1,6 +1,6 @@
 import React from 'react'
+import AccountView from '../components/account/accountView'
 
-
-const Account =()=>(<h1>Account page</h1>)
+const Account =()=>(<AccountView />)
 
 export default Account

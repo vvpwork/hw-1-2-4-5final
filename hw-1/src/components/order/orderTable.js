@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
+import { getAllOrders } from '../../assets/axiosApi';
+import s from '../../styles/order.module.css';
 const headerTable = ['Date', 'Prise', 'Delivery address', 'Ratings'];
 export default class Order extends Component {
   state = {
@@ -8,11 +9,10 @@ export default class Order extends Component {
   };
 
   componentDidMount() {
-    axios
-      .get('http://localhost:3004/order')
+    getAllOrders()
       .then(response =>
         this.setState({
-          order: response.data,
+          order: response,
         }),
       )
       .catch(error => console.log(error));
@@ -22,21 +22,23 @@ export default class Order extends Component {
     const { order } = this.state;
 
     return (
-      <table>
-        <tr>
-          {headerTable.map(title => (
-            <th>{title}</th>
-          ))}
-        </tr>
-        {order.map(({ date, price, address, rating, id }) => (
-          <tr key={id}>
-            <td>{date}</td>
-            <td>{price}</td>
-            <td>{address}</td>
-            <td>{rating}</td>
-            <td />
+      <table className={s.table}>
+        <tbody>
+          <tr>
+            {headerTable.map(title => (
+              <th key={title}>{title}</th>
+            ))}
           </tr>
-        ))}
+          {order.map(({ date, price, address, rating, id }) => (
+            <tr key={id}>
+              <td>{date}</td>
+              <td>{price}</td>
+              <td>{address}</td>
+              <td>{rating}</td>
+              <td />
+            </tr>
+          ))}
+        </tbody>
       </table>
     );
   }

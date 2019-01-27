@@ -1,6 +1,7 @@
 import React from 'react'
 
+import OredrTable from '../components/order/orderTable'
 
-const OrderHistory = ()=>(<h1>Order History</h1>)
+const OrderHistory = ()=>(<OredrTable />)
 
 export default OrderHistory

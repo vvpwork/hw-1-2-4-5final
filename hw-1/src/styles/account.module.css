@@ -1,0 +1,43 @@
+.container{
+    font:500 18px sans-serif; 
+    display: flex;
+    justify-content: space-around;
+    width: 80% ;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.userInfo{
+    text-align: center;
+}
+.userInfo img {
+    display: inline-block;
+    max-width: 200px;
+    height: auto;
+    object-fit: cover;
+}
+
+.container button {
+    margin: 0 auto;
+    margin-top: 20px;
+    display: block;
+    background: #2cc060;
+    color: snow;
+    border-radius: 5px;
+    line-height: 25px;
+    border: none;
+}
+
+.container button:hover, button:active{
+    outline: none;
+    cursor: pointer;
+    background: #fc5f7e;
+}
+
+.userChange{
+    text-align: center;
+}
+
+.userChange p {
+    margin: 15px 0 5px 0;
+}
