@@ -8,7 +8,7 @@ import CartIcon from '../cart/cartIcon'
 // styles
 import s from '../../styles/header.module.css';
 
-const name = 'Bob Ross';
+const name = 'IronMan';
 
 export default class Header extends Component {
   state = {};
