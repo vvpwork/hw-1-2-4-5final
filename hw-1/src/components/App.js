@@ -44,6 +44,12 @@ const asyncErrorPage = lazy(() =>
 const asyncCartPage = lazy(() =>
   import('../pages/Cart'  /*webpackChunkName: "Cart-page" */),
 );
+const asyncSignUpPage = lazy(() =>
+  import('../pages/SignUp'  /*webpackChunkName: "SignUp-page" */),
+);
+const asyncSignInPage = lazy(() =>
+  import('../pages/SignIn'  /*webpackChunkName: "SignIn-page" */),
+);
 export default class App extends Component {
   // state = {
   //   modalOpen: false,
@@ -77,6 +83,8 @@ export default class App extends Component {
             <Route path={routes.ORDER_HISTORY} component={asyncOrderHistoryPage} />
             <Route path={routes.MEAL_PLANNER} component={asyncMealPlannerPage} />
             <Route path={routes.CART} component={asyncCartPage} />
+            <Route path={routes.SIGN_UP} component={asyncSignUpPage} />
+            <Route path={routes.SIGN_IN} component={asyncSignInPage} />
             <Route path={routes.ERROR} component={asyncErrorPage} />
             <Redirect push to ={routes.ERROR}  />
         </Switch>

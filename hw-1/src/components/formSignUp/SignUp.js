@@ -1,79 +1,76 @@
-import React, { Component } from 'react';
+import React from 'react';
 import s from '../../styles/signUp.module.css';
 
-export default class SignUp extends Component {
-  state = {
-    phone: '',
-    name: '',
-    email: '',
-    password: '',
-    passwordConfirm: '',
-  };
-
-  handleChange = ({ target }) => {
-    this.setState({
-      [target.name]: target.value,
-    });
-  };
-
-  handleSubmit = ev => {
-    ev.preventDefault();
-    const { password, passwordConfirm } = this.state;
-    if (passwordConfirm !== password) return alert('пароли не совпадают');
-    return console.log(this.state);
-  };
-
-  render() {
-    const { phone, email, name, password, passwordConfirm } = this.state;
-    return (
-      <form className={s.form} onSubmit={this.handleSubmit}>
+const SignUpForm = ({
+  userInfo: { phone, email, name, password, passwordConfirm },
+  change,
+  submit,
+}) => {
+  return (
+    <form className={s.form} onSubmit={submit}>
+      <label>
+        <span>Name</span>
         <input
           className={s.inp}
           type="text"
           name="name"
           value={name}
-          onChange={this.handleChange}
+          onChange={change}
           placeholder="name"
           required
         />
+      </label>
+      <label>
+        <span>Email</span>
         <input
           className={s.inp}
           type="email"
           name="email"
           value={email}
-          onChange={this.handleChange}
+          onChange={change}
           placeholder="email"
           required
         />
+      </label>
+      <label>
+        <span>Phone</span>
         <input
           className={s.inp}
           type="phone"
           name="phone"
           value={phone}
-          onChange={this.handleChange}
+          onChange={change}
           placeholder="phone"
           required
         />
+      </label>
+      <label>
+        <span>Password</span>
         <input
           className={s.inp}
           type="password"
           name="password"
           value={password}
-          onChange={this.handleChange}
+          onChange={change}
           placeholder="password"
           required
         />
+      </label>
+      <label>
+        <span>Confirm password</span>
         <input
           className={s.inp}
           type="password"
           name="passwordConfirm"
           value={passwordConfirm}
-          onChange={this.handleChange}
+          onChange={change}
           placeholder="passwordConfirm"
           required
         />
-        <button type="submit">Sign in</button>
-      </form>
-    );
-  }
-}
+      </label>
+      <button type="submit">Sign up</button>
+    </form>
+  );
+};
+
+export default SignUpForm;

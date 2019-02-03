@@ -1,10 +1,13 @@
 import React, { Component, createRef } from 'react';
+import { connect } from 'react-redux';
+import {asyncOperetion} from '../../../redux/modules/auth'
+
 import Avatar from './userAvatar/Avatar';
 import DropDown from './dropDown/DropDown';
 
 import s from '../../../styles/userMenu.module.css';
 
-export default class userMenu extends Component {
+class userMenu extends Component {
   containerRef = createRef();
 
   state = {
@@ -57,7 +60,7 @@ export default class userMenu extends Component {
   };
 
   render() {
-    const { name, avatar } = this.props;
+    const { name, avatar, logOut } = this.props;
     const { isDropDown } = this.state;
     return (
       <div
@@ -67,8 +70,17 @@ export default class userMenu extends Component {
       >
         <Avatar alt="avatar" width={50} heigth={50} src={avatar} />
         <span>{name}</span>
-        {isDropDown && <DropDown />}
+    {isDropDown && <DropDown logOut={()=>logOut()} />}
       </div>
     );
   }
 }
+const mapStateToProps = (state) => ({
+
+})
+
+const mapDispatchToProps = {
+  logOut: asyncOperetion.signOut
+}
+
+export default connect(null, mapDispatchToProps)(userMenu)

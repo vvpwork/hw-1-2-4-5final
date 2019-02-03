@@ -1,48 +1,30 @@
 import React, { Component } from 'react';
 import s from '../../styles/signIn.module.css';
 
-export default class Login extends Component {
-  state = {
-    email: '',
-    password: '',
-  };
+const SignIn = ({ submit, user: { email, password }, changeInput }) => {
+  return (
+    <form className={s.form} onSubmit={submit}>
+      <input
+        className={s.inp}
+        type="email"
+        name="email"
+        value={email}
+        onChange={changeInput}
+        placeholder="email"
+        required
+      />
+      <input
+        className={s.inp}
+        type="password"
+        name="password"
+        value={password}
+        onChange={changeInput}
+        placeholder="password"
+        required
+      />
+      <button type="submit">Sign in</button>
+    </form>
+  );
+};
 
-  handleChange = ({ target: { value, name } }) => {
-    this.setState({
-      [name]: value,
-    });
-  };
-
-  handleSubmit = event => {
-    event.preventDefault();
-    console.log(this.state);
-  };
-
-  render() {
-    const { email, password } = this.state;
-
-    return (
-      <form className={s.form} onSubmit={this.handleSubmit}>
-        <input
-          className={s.inp}
-          type="email"
-          name="email"
-          value={email}
-          onChange={this.handleChange}
-          placeholder="email"
-          required
-        />
-        <input
-          className={s.inp}
-          type="password"
-          name="password"
-          value={password}
-          onChange={this.handleChange}
-          placeholder="password"
-          required
-        />
-        <button type="submit">Sign in</button>
-      </form>
-    );
-  }
-}
+export default SignIn;
