@@ -7,26 +7,25 @@ import Nav from './headerNav/nav';
 import UserMenu from './userMenu/userMenu';
 import avatar from './assets/iron.png';
 import CartIcon from '../cart/cartIcon';
-import Button from '../common/button'
-import { authSelectors, asyncOperetion } from '../../redux/modules/auth';
+import { authSelectors } from '../../redux/modules/auth';
 import routes from '../../configs/routes';
 // styles
 import s from '../../styles/header.module.css';
-
-const name = 'IronMan';
 
 class Header extends Component {
   state = {};
 
   render() {
-    const { isAuthenticated,signOut } = this.props;
+    const { isAuthenticated, userName } = this.props;
     return (
       <header className={s.header}>
         <Logo />
         <Nav />
         <CartIcon />
         {isAuthenticated ? (
-          <div><UserMenu avatar={avatar} name={name} /></div>
+          <div>
+            <UserMenu avatar={avatar} name={userName} />
+          </div>
         ) : (
           <div>
             {' '}
@@ -43,10 +42,10 @@ class Header extends Component {
 
 const mapStateToProps = state => ({
   isAuthenticated: authSelectors.isAuthenticated(state),
+  userName: authSelectors.userName(state),
 });
 
-
-
 export default connect(
-  mapStateToProps, null
+  mapStateToProps,
+  null,
 )(Header);

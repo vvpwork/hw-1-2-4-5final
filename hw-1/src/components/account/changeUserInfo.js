@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import s from '../../styles/account.module.css'
+import s from '../../styles/account.module.css';
 
+const InnitialState = {
+  name: '',
+  email: '',
+  password: '',
+};
 export default class ChangeUserInfo extends Component {
-  state = {
-    name: '',
-    surname:'',
-    tel: '',
-    email: '',
-  };
+  state = InnitialState;
 
   handleChange = ({ target: { value, name } }) => {
     this.setState({
@@ -15,35 +15,54 @@ export default class ChangeUserInfo extends Component {
     });
   };
 
-  handleSubmit = (evt)=>{
-    evt.preventDefault()
-      console.log(this.state)
-  }
+  handleSubmit = evt => {
+    evt.preventDefault();
+    console.log(this.state);
+    this.setState({
+      ...InnitialState,
+    });
+  };
+
   render() {
-      const {name, tel, surname, email} = this.state
-    return(
+    const { name, password, email } = this.state;
+    return (
       <section onSubmit={this.handleSubmit} className={s.userChange}>
-      <h2>Редактирвать данные</h2>
+        <h2>Редактирвать данные</h2>
         <form>
-          <label>
-            <p>введите новое имя</p>
-            <input name="name" value={name} type="text" onChange={this.handleChange} />
+          <label htmlFor={name}>
+            <p>изменить имя</p>
+            <input
+              id={name}
+              name="name"
+              value={name}
+              type="text"
+              onChange={this.handleChange}
+            />
           </label>
-          <label>
-            <p>введите новою фамилию</p>
-            <input name="surname" value={surname} type='text' onChange={this.handleChange} />
+
+          <label htmlFor={email}>
+            <p>изменить email</p>
+            <input
+              id={email}
+              name="email"
+              value={email}
+              type="email"
+              onChange={this.handleChange}
+            />
           </label>
-          <label>
-            <p>введите телефон</p>
-            <input name="tel" value={tel} type='telephone' onChange={this.handleChange} />
+          <label htmlFor={password}>
+            <p>изменить пароль</p>
+            <input
+              id={password}
+              name="password"
+              value={password}
+              type="text"
+              onChange={this.handleChange}
+            />
           </label>
-          <label>
-            <p>введите email</p>
-            <input name="email" value={email} type="email" onChange={this.handleChange} />
-          </label>
-          <button type='submit'>изменить данные</button>
+          <button type="submit">изменить данные</button>
         </form>
       </section>
-    )
+    );
   }
 }
