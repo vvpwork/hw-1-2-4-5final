@@ -76,7 +76,7 @@ router.post('/signout', (req, res) => {
 router.get('/current', requireAuth, (req, res) => {
   const { id } = req.user;
 
-  userDbrs
+  userDb
     .getById(id)
     .then(user => {
       res.status(200).json({ user });

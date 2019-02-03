@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App.js';
-import { BrowserRouter, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
+import { BrowserRouter, Route } from 'react-router-dom';
+// component
+import App from './components/App';
 import store from './redux/store/store';
 
 ReactDOM.render(
