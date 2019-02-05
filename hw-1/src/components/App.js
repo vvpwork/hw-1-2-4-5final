@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 // components
 import Header from './header/headerApp';
 import { asyncOperetion } from '../redux/modules/auth';
+import PrivateRoute from './hoc/privateRoute';
 // configs
 import routes from '../configs/routes';
 
@@ -70,12 +71,12 @@ class App extends Component {
             <Route path={routes.DELIVERY} component={asyncDeliveryPage} />
             <Route exact path={routes.MENU} component={asyncMenuPage} />
             <Route path={routes.MENU_ITEM} component={asyncMenuItemPage} />
-            <Route path={routes.ACCOUNT} component={asyncAccountPage} />
-            <Route
+            <PrivateRoute path={routes.ACCOUNT} component={asyncAccountPage} />
+            <PrivateRoute
               path={routes.ORDER_HISTORY}
               component={asyncOrderHistoryPage}
             />
-            <Route
+            <PrivateRoute
               path={routes.MEAL_PLANNER}
               component={asyncMealPlannerPage}
             />

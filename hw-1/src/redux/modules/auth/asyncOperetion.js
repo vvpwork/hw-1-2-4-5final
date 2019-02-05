@@ -8,14 +8,14 @@ const signUp = user => dispatch => {
   axios
     .post('http://localhost:4040/auth/signup', user)
     .then(({ data }) => dispatch(action.signUpSuccess(data)))
-    .catch(error => console.log(error) || dispatch(action.signUpError(error)));
+    .catch(error => dispatch(action.signUpError(error)));
 };
 const signIn = user => dispatch => {
   dispatch(action.signUpRequest());
   axios
     .post('http://localhost:4040/auth/signin', user)
     .then(({ data }) => dispatch(action.signInSuccess(data)))
-    .catch(error => console.log(error) || dispatch(action.signInError(error)));
+    .catch(error => dispatch(action.signInError(error)));
 };
 const signOut = () => (dispatch, getState) => {
   dispatch(action.signOutRequest());
@@ -46,4 +46,13 @@ const refreshUser = () => (dispatch, getState) => {
     .catch(error => console.log(error));
 };
 
-export default { signUp, signIn, signOut, refreshUser };
+const changeUserInfo = user => dispatch => {
+  dispatch(action.changeUserRequest());
+
+  axios
+    .patch('http://localhost:4040/auth/change', user)
+    .then(({ data }) => dispatch(action.changeUserSuccess(data.user)))
+    .catch(error => dispatch(action.changeUserError(error)));
+};
+
+export default { signUp, signIn, signOut, refreshUser, changeUserInfo };

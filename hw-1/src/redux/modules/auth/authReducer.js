@@ -6,6 +6,7 @@ const user = (state = null, { type, payload }) => {
     case action.SIGN_UP_SUCCESS:
     case action.SIGN_IN_SUCCESS:
     case action.REFRESH_CURRENT_USER_SUCCESS:
+    case action.CHANGE_USER_SUCCES:
       return payload.user;
 
     case action.SIGN_OUT_SUCCESS:

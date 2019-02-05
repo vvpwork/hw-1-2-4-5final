@@ -29,10 +29,13 @@ class Header extends Component {
         ) : (
           <div>
             {' '}
-            <Link to={routes.SIGN_UP} style={{ marginRight: '10px' }}>
+            <Link to={routes.SIGN_UP} className={s.sign}>
               sign up
             </Link>
-            <Link to={routes.SIGN_IN}>sign in</Link>
+            /
+            <Link to={routes.SIGN_IN} className={s.sign}>
+              sign in
+            </Link>
           </div>
         )}
       </header>

@@ -4,8 +4,9 @@ import { connect } from 'react-redux';
 import { asyncOperetion } from '../../redux/modules/auth';
 import SignUpForm from './SignUp';
 
+import s from '../../styles/sign.module.css';
+
 const innitialState = {
-  phone: '',
   name: '',
   email: '',
   password: '',
@@ -29,22 +30,22 @@ class SignUpContainer extends Component {
 
   handleSubmit = ev => {
     ev.preventDefault();
-    const { password, passwordConfirm, name, phone, email } = this.state;
+    const { formSubmit } = this.props;
+    const { password, passwordConfirm, name, email } = this.state;
     if (passwordConfirm !== password) return alert('пароли не совпадают');
     const newUser = {
       name,
       email,
-      password
+      password,
     };
-    console.log(newUser);
-    this.props.formSubmit(newUser);
-    // console.log(this.state);
+    formSubmit(newUser);
     this.stateReset();
+    return null;
   };
 
   render() {
     return (
-      <div>
+      <div className={s.container}>
         <h2>Enter your credential</h2>
         <SignUpForm
           userInfo={this.state}
@@ -56,8 +57,6 @@ class SignUpContainer extends Component {
     );
   }
 }
-
-const mapStateToProps = state => ({});
 
 const mapDispatchToProps = {
   formSubmit: asyncOperetion.signUp,

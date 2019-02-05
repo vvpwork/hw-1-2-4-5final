@@ -5,13 +5,13 @@ const routes = {
   ABOUT: '/about',
   DELIVERY: '/delivery',
   CONTACT: '/contact',
-  ACCOUNT: '/acount',
+  ACCOUNT: '/account',
   ORDER_HISTORY: '/order-history',
   MEAL_PLANNER: '/meal-planner',
   CART: '/cart',
   ERROR: '/error',
-  SIGN_UP:'/signup',
-  SIGN_IN: '/signin'
+  SIGN_UP: '/signup',
+  SIGN_IN: '/signin',
 };
 
 export default routes;

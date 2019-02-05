@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import { authSelectors, asyncOperetion } from '../../redux/modules/auth';
 import s from '../../styles/account.module.css';
 
 const InnitialState = {
@@ -6,7 +9,7 @@ const InnitialState = {
   email: '',
   password: '',
 };
-export default class ChangeUserInfo extends Component {
+class ChangeUserInfo extends Component {
   state = InnitialState;
 
   handleChange = ({ target: { value, name } }) => {
@@ -17,7 +20,9 @@ export default class ChangeUserInfo extends Component {
 
   handleSubmit = evt => {
     evt.preventDefault();
-    console.log(this.state);
+    const { userId, changeUser } = this.props;
+    changeUser({ ...this.state, id: userId });
+
     this.setState({
       ...InnitialState,
     });
@@ -66,3 +71,14 @@ export default class ChangeUserInfo extends Component {
     );
   }
 }
+
+const mapDispatchToProps = {
+  changeUser: asyncOperetion.changeUserInfo,
+};
+
+export default connect(
+  state => ({
+    userId: authSelectors.userId(state),
+  }),
+  mapDispatchToProps,
+)(ChangeUserInfo);

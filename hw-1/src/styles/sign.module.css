@@ -1,0 +1,19 @@
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.container button:hover {
+  outline: none;
+  cursor: pointer;
+  background: green;
+  color: snow;
+}
+.container button {
+  border-radius: 5px;
+  box-shadow: none;
+  color: green;
+  background: none;
+  border: 1px solid green;
+}

@@ -1,10 +1,11 @@
 import React from 'react';
-import SignUpContainer from './../components/formSignUp/signUpContainer';
+import SignUpContainer from '../components/formSignUp/signUpContainer';
+import withRedirect from '../components/hoc/redirect';
 
-const SignUpPage = ()=>(
-    <>
-        <SignUpContainer />
-    </>
-)
+const SignUpPage = () => (
+  <>
+    <SignUpContainer />
+  </>
+);
 
-export default SignUpPage
+export default withRedirect(SignUpPage);

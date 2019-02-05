@@ -1,6 +1,6 @@
 import React, { Component, createRef } from 'react';
 import { connect } from 'react-redux';
-import {asyncOperetion} from '../../../redux/modules/auth'
+import { asyncOperetion } from '../../../redux/modules/auth';
 
 import Avatar from './userAvatar/Avatar';
 import DropDown from './dropDown/DropDown';
@@ -70,17 +70,17 @@ class userMenu extends Component {
       >
         <Avatar alt="avatar" width={50} heigth={50} src={avatar} />
         <span>{name}</span>
-    {isDropDown && <DropDown logOut={()=>logOut()} />}
+        {isDropDown && <DropDown logOut={() => logOut()} />}
       </div>
     );
   }
 }
-const mapStateToProps = (state) => ({
-
-})
 
 const mapDispatchToProps = {
-  logOut: asyncOperetion.signOut
-}
+  logOut: asyncOperetion.signOut,
+};
 
-export default connect(null, mapDispatchToProps)(userMenu)
+export default connect(
+  null,
+  mapDispatchToProps,
+)(userMenu);

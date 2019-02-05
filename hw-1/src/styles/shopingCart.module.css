@@ -1,6 +1,17 @@
-.img{
-    display: inline-block;
-    width: 35px;
-    height: auto;
-    object-fit: cover;
+.img {
+  display: inline-block;
+  width: 35px;
+  height: auto;
+  object-fit: cover;
+}
+.link {
+  position: relative;
+}
+.span {
+  display: inline-block;
+  position: absolute;
+  top: 31px;
+  left: 16px;
+  color: green;
+  font-weight: bold;
 }

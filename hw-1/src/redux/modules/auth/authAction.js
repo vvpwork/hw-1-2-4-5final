@@ -44,3 +44,16 @@ export const refreshUserSuccess = user => ({
   type: actions.REFRESH_CURRENT_USER_SUCCESS,
   payload: { user },
 });
+
+export const changeUserRequest = () => ({
+  type: actions.CHANGE_USER_REQUEST,
+});
+
+export const changeUserSuccess = user => ({
+  type: actions.CHANGE_USER_SUCCES,
+  payload: { user },
+});
+export const changeUserError = error => ({
+  type: actions.ERROR,
+  payload: error,
+});

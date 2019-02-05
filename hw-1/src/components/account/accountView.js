@@ -18,6 +18,7 @@ const Account = props => (
 const mapStateToProps = state => ({
   name: authSelectors.userName(state),
   email: authSelectors.userEmail(state),
+  id: authSelectors.userId(state),
   photo:
     'https://image.shutterstock.com/image-vector/hero-mask-on-red-background-450w-389497207.jpg',
 });

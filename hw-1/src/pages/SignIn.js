@@ -1,11 +1,12 @@
 import React from 'react';
+import withRedirect from '../components/hoc/redirect';
 
 import SignInContainer from '../components/formSignIn/SignInContainer';
+
 const SignIn = () => (
   <>
-    <h1>sign in</h1>
     <SignInContainer />
   </>
 );
 
-export default SignIn;
+export default withRedirect(SignIn);

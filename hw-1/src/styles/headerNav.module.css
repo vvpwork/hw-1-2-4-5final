@@ -9,6 +9,15 @@
   text-decoration: none;
   color: #282c34;
 }
+.link:hover {
+  color: green;
+  border-bottom: 1px solid green;
+}
+
+.active {
+  color: green;
+  border-bottom: 1px solid green;
+}
 
 .items {
   margin-right: 10px;

@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-//componet
+// componet
 import SignIn from './SignIn';
-import {asyncOperetion} from '../../redux/modules/auth'
+import { asyncOperetion } from '../../redux/modules/auth';
+// style
+
+import s from '../../styles/sign.module.css';
+
 class SignInContainer extends Component {
   state = {
     email: '',
@@ -18,27 +22,29 @@ class SignInContainer extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.signIn(this.state)
-    console.log(this.state);
+    const { signIn } = this.props;
+    signIn(this.state);
   };
 
   render() {
     return (
-      <SignIn
-        user={this.state}
-        changeInput={evt => this.handleChange(evt)}
-        submit={evt => this.handleSubmit(evt)}
-      />
+      <div className={s.container}>
+        <h1>Enter your email and password</h1>
+        <SignIn
+          user={this.state}
+          changeInput={evt => this.handleChange(evt)}
+          submit={evt => this.handleSubmit(evt)}
+        />
+      </div>
     );
   }
 }
 
-const mapStateToProps = (state) => ({
-
-})
-
 const mapDispatchToProps = {
-  signIn: asyncOperetion.signIn
-}
+  signIn: asyncOperetion.signIn,
+};
 
-export default connect(null, mapDispatchToProps)(SignInContainer)
+export default connect(
+  null,
+  mapDispatchToProps,
+)(SignInContainer);

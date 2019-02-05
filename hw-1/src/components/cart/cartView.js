@@ -20,17 +20,27 @@ const cartView = ({
           <tr key={id} className={s.tr}>
             <td>{name}</td>
             <td>
-              <button className={s.button} onClick={() => cartIncrement(id)}>
+              <button
+                type="button"
+                className={s.button}
+                onClick={() => cartIncrement(id)}
+              >
                 +
               </button>
               {amount}
-              <button className={s.button} onClick={() => cartDecrement(id)}>
+              <button
+                type="button"
+                className={s.button}
+                onClick={() => cartDecrement(id)}
+              >
                 -
               </button>
             </td>
-            <td> {price} у.е</td>
+            <td> {price * amount} у.е</td>
             <td>
-              <button onClick={() => deletProduct(id)}>Удалить</button>
+              <button type="button" onClick={() => deletProduct(id)}>
+                Удалить
+              </button>
             </td>
           </tr>
         ))}
