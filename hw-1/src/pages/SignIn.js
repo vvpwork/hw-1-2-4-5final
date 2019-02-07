@@ -3,9 +3,9 @@ import withRedirect from '../components/hoc/redirect';
 
 import SignInContainer from '../components/formSignIn/SignInContainer';
 
-const SignIn = () => (
+const SignIn = props => (
   <>
-    <SignInContainer />
+    <SignInContainer {...props} />
   </>
 );
 

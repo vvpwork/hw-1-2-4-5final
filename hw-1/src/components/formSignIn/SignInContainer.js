@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
 // componet
 import SignIn from './SignIn';
-import { asyncOperetion } from '../../redux/modules/auth';
+import { asyncOperetion, authSelectors } from '../../redux/modules/auth';
 // style
 
 import s from '../../styles/sign.module.css';
@@ -22,8 +21,10 @@ class SignInContainer extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const { signIn } = this.props;
-    signIn(this.state);
+    const { signIn, history } = this.props;
+    signIn(this.state).then(response =>
+      response ? null : history.push('/signup'),
+    );
   };
 
   render() {
@@ -40,11 +41,15 @@ class SignInContainer extends Component {
   }
 }
 
+const mapState = state => ({
+  isAuthenticated: authSelectors.isAuthenticated(state),
+});
+
 const mapDispatchToProps = {
   signIn: asyncOperetion.signIn,
 };
 
 export default connect(
-  null,
+  mapState,
   mapDispatchToProps,
 )(SignInContainer);

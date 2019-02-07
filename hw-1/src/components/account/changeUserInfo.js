@@ -21,7 +21,16 @@ class ChangeUserInfo extends Component {
   handleSubmit = evt => {
     evt.preventDefault();
     const { userId, changeUser } = this.props;
-    changeUser({ ...this.state, id: userId });
+    changeUser({ ...this.state, id: userId }).then(
+      ({
+        payload: {
+          user: { name, password, email },
+        },
+      }) =>
+        alert(
+          `данные измененены на name: ${name} password: ${password} email:${email} `,
+        ),
+    );
 
     this.setState({
       ...InnitialState,

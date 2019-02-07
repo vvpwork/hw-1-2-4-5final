@@ -8,14 +8,22 @@ const signUp = user => dispatch => {
   axios
     .post('http://localhost:4040/auth/signup', user)
     .then(({ data }) => dispatch(action.signUpSuccess(data)))
-    .catch(error => dispatch(action.signUpError(error)));
+    .catch(
+      error =>
+        dispatch(action.signUpError(error)) &&
+        alert(error.response.data.message),
+    );
 };
 const signIn = user => dispatch => {
   dispatch(action.signUpRequest());
-  axios
+  return axios
     .post('http://localhost:4040/auth/signin', user)
     .then(({ data }) => dispatch(action.signInSuccess(data)))
-    .catch(error => dispatch(action.signInError(error)));
+    .catch(
+      error =>
+        dispatch(action.signInError(error)) &&
+        alert(error.response.data.message),
+    );
 };
 const signOut = () => (dispatch, getState) => {
   dispatch(action.signOutRequest());
@@ -32,7 +40,6 @@ const signOut = () => (dispatch, getState) => {
 
 const refreshUser = () => (dispatch, getState) => {
   const userToken = selector.token(getState());
-  console.log(userToken);
   if (!userToken) return;
   dispatch(action.refreshUserStart());
 
@@ -49,7 +56,7 @@ const refreshUser = () => (dispatch, getState) => {
 const changeUserInfo = user => dispatch => {
   dispatch(action.changeUserRequest());
 
-  axios
+  return axios
     .patch('http://localhost:4040/auth/change', user)
     .then(({ data }) => dispatch(action.changeUserSuccess(data.user)))
     .catch(error => dispatch(action.changeUserError(error)));
